@@ -1,7 +1,7 @@
-From 21fce5d086b35de4ee4aeccbd967b4f789c94ca3 Mon Sep 17 00:00:00 2001
+From 2c1844d7bdab7d0fc5879d29e1d1809814d59c74 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Wed, 11 Aug 2021 11:46:03 +0200
-Subject: [PATCH 3/3] HACK: meson: config: only uart by default
+Subject: [PATCH 4/4] HACK: meson: config: only uart by default
 
 By default, set stdin and stdout to use the uart only.
 video and usb keyboard messes with copy/paste in the uart which is
@@ -11,27 +11,26 @@ If necessary, video and usb can be enabled by reseting the env variables
 
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 ---
- include/configs/meson64.h | 10 ----------
- 1 file changed, 10 deletions(-)
+ include/configs/meson64.h | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
 
 diff --git a/include/configs/meson64.h b/include/configs/meson64.h
-index 52cc01f73da3..247268f204bc 100644
+index dd0e0b805978..965c47a6df40 100644
 --- a/include/configs/meson64.h
 +++ b/include/configs/meson64.h
-@@ -16,18 +16,8 @@
- #define GICC_BASE			0xc4302000
- #endif
- 
--/* For splashscreen */
--#ifdef CONFIG_DM_VIDEO
+@@ -24,16 +24,10 @@
+ #define CONFIG_BMP_32BPP
+ #define CONFIG_SPLASH_SCREEN
+ #define CONFIG_SPLASH_SCREEN_ALIGN
 -#define STDOUT_CFG "vidconsole,serial"
 -#else
- #define STDOUT_CFG "serial"
--#endif
--
+-#define STDOUT_CFG "serial"
+ #endif
+ 
 -#ifdef CONFIG_USB_KEYBOARD
 -#define STDIN_CFG "usbkbd,serial"
 -#else
++#define STDOUT_CFG "serial"
  #define STDIN_CFG "serial"
 -#endif
  

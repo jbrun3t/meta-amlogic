@@ -5,7 +5,7 @@ repos:
   poky:
     url: https://git.yoctoproject.org/git/poky
     path: layers/poky
-    refspec: hardknott-3.3.1
+    refspec: dunfell-23.0.10
     layers:
       meta:
       meta-poky:
