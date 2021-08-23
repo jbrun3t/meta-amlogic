@@ -1,4 +1,4 @@
-From 9f0c775c8530bd14e9bff0204eb0212b5ed64cee Mon Sep 17 00:00:00 2001
+From d12277a24016c5cbec50b0131e57a4f35730e0b0 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Tue, 10 Aug 2021 15:51:16 +0200
 Subject: [PATCH 2/4] arm64: meson: add support for the amlogic p241 board
@@ -43,7 +43,7 @@ index 000000000000..5f0e0fd34cef
 +#include "meson-gx-u-boot.dtsi"
 diff --git a/configs/p241_defconfig b/configs/p241_defconfig
 new file mode 100644
-index 000000000000..9f83a5ad3bd1
+index 000000000000..9c26ddbfe794
 --- /dev/null
 +++ b/configs/p241_defconfig
 @@ -0,0 +1,69 @@
@@ -118,16 +118,16 @@ index 000000000000..9f83a5ad3bd1
 +CONFIG_OF_LIBFDT_OVERLAY=y
 diff --git a/include/configs/p241.h b/include/configs/p241.h
 new file mode 100644
-index 000000000000..6a20b57d123e
+index 000000000000..551375109125
 --- /dev/null
 +++ b/include/configs/p241.h
 @@ -0,0 +1,17 @@
 +/* SPDX-License-Identifier: GPL-2.0+ */
 +/*
-+ * Configuration for LibreTech AC
++ * Configuration for the p241
 + *
-+ * Copyright (C) 2017 Baylibre, SAS
-+ * Author: Neil Armstrong <narmstrong@baylibre.com>
++ * Copyright (C) 2021 Baylibre, SAS
++ * Author: Jerome Brunet <jbrunet@baylibre.com>
 + */
 +
 +#ifndef __CONFIG_H

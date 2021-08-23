@@ -1,4 +1,4 @@
-From d8448265a965604a8150dcbdd216bb65f5f11d5c Mon Sep 17 00:00:00 2001
+From 0b4d81ac6f0d4b04344a9354d00cb53e0bd0ff3d Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Sat, 28 Mar 2020 21:56:04 +0100
 Subject: [PATCH 3/4] meson: env: remove amlogic directory from fdtfile

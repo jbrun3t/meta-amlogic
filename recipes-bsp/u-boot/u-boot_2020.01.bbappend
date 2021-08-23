@@ -10,4 +10,4 @@ SRC_URI_append_amlogic = " file://0001-arm64-meson-import-p241-dts-from-linux-v5
 SRC_URI_append_amlogic = " file://0003-meson-env-remove-amlogic-directory-from-fdtfile-vari.patch"
 
 # HDMI and USB Keyboard mess with the TTY and are annoying while working on the platform
-SRC_URI_append_amlogic = "${@bb.utils.contains('UBOOT_ILOVEUART', '1', " file://meson-config-only-uart-by-default.patch", "", d)}"
+SRC_URI_append_amlogic = "${@bb.utils.contains('UBOOT_ILOVEUART', '1', " file://0004-HACK-meson-config-only-uart-by-default.patch", "", d)}"
