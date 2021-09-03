@@ -10,7 +10,7 @@ Please see the corresponding sections below for details.
 
 ## Dependencies
 
-* poky: `git://git.yoctoproject.org/poky` - refspec: `hardknott`
+* poky: `git://git.yoctoproject.org/poky` - refspec: `dunfell`
 
 ## Patches
 
@@ -28,7 +28,7 @@ Jerome Brunet <jbrunet@baylibre.com>
 Checkout this awesome layer
 
 ```
-git clone https://gitlab.com/jbrunet/meta-nosem.git
+git clone https://gitlab.com/jbrunet/meta-nosem.git -b dunfell
 ```
 
 Checkout poky with hardknott and setup the build as usual
@@ -56,7 +56,7 @@ Just checkout `meta-nosem` and fire up `kas`. It will take care of the
 dependencies and the configuration
 
 ```
-git clone https://gitlab.com/jbrunet/meta-nosem.git
+git clone https://gitlab.com/jbrunet/meta-nosem.git -b dunfell
 kas build kas/aml-s905x-cc.yml
 ```
 
@@ -64,8 +64,8 @@ This will build `core-image-base` for the `aml-s905x-cc`
 
 ## Flashing
 
-Image generated with `wic` can flash directly to the device using dd.  Even
-better, you can use bmap which is faster and saver
+Image generated with `wic` can flash directly to the device using dd.
+Even better, you can use bmaptool which is faster and safer
 
 ```
 bmaptool copy --bmap <some-img>.wic.bmap <some-img>.wic.bz2 <target-device>
@@ -75,7 +75,7 @@ If you used `amlogic-none.wks`, the atf was not installed in the
 `wic`. This is useful if you intend to install the bootloader on another
 device, such as a SPI or eMMC boot partition
 
-Check `tmp/deploy/images/atf/` for `atf.bin` and `atf.bin.sd.bin`
+Check `tmp/deploy/images/<machine>/` for `atf.bin` and `atf.bin.sd.bin`
 
 * SPI: using a bootstrap u-boot, write `atf.bin` directly at the start of
   the device
