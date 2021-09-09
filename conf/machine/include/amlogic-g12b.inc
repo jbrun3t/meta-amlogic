@@ -4,5 +4,4 @@ require conf/machine/include/amlogic-g12.inc
 
 SOC_FAMILY_append = ":meson-g12b"
 
-DEFAULTTUNE ?= "cortexa73-cortexa53"
-require conf/machine/include/tune-cortexa73-cortexa53.inc
+require conf/machine/include/arm/arch-armv8a.inc
