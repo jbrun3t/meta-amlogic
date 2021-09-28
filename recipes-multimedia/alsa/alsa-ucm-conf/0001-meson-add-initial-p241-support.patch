@@ -1,0 +1,85 @@
+From 5c99c2ef60b12771b81bbe3c7a50146cfddce0e3 Mon Sep 17 00:00:00 2001
+From: Jerome Brunet <jbrunet@baylibre.com>
+Date: Tue, 28 Sep 2021 13:30:35 +0200
+Subject: [PATCH 1/2] meson: add initial p241 support
+
+Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+---
+ ucm2/GXLP241/GXLP241.conf |  8 +++++++
+ ucm2/GXLP241/HiFi.conf    | 48 +++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 56 insertions(+)
+ create mode 100644 ucm2/GXLP241/GXLP241.conf
+ create mode 100644 ucm2/GXLP241/HiFi.conf
+
+diff --git a/ucm2/GXLP241/GXLP241.conf b/ucm2/GXLP241/GXLP241.conf
+new file mode 100644
+index 000000000000..dee737b6bff5
+--- /dev/null
++++ b/ucm2/GXLP241/GXLP241.conf
+@@ -0,0 +1,8 @@
++# Use case for the p241 Amlogic s805x reference design
++
++Syntax 2
++
++SectionUseCase."HiFi" {
++	File "HiFi.conf"
++	Comment "Play HiFi quality Music"
++}
+diff --git a/ucm2/GXLP241/HiFi.conf b/ucm2/GXLP241/HiFi.conf
+new file mode 100644
+index 000000000000..759b164ce961
+--- /dev/null
++++ b/ucm2/GXLP241/HiFi.conf
+@@ -0,0 +1,48 @@
++SectionVerb {
++	Value {
++		PlaybackPriority 100
++		PlaybackPCM "hw:${CardId},0"
++	}
++}
++
++# For some reason, I still need specify cdev in the sequences
++# AFAIU, it should not be required, the other platform have
++# removed it but still ...
++
++SectionDevice."Lineout" {
++	Comment "Analog Lineout"
++
++	EnableSequence [
++		cdev "hw:GXLP241"
++		cset "name='AIU ACODEC SRC' I2S"
++		cset "name='AIU ACODEC I2S Lane Select' 0"
++		cset "name='AIU ACODEC OUT EN Switch' 1"
++		cset "name='ACODEC Playback Switch' 1"
++		cset "name='ACODEC Playback Volume' 255,255"
++	]
++	DisableSequence [
++		cdev "hw:GXLP241"
++		cset "name='ACODEC Playback Volume' 0,0"
++		cset "name='ACODEC Playback Switch' 0"
++		cset "name='AIU ACODEC OUT EN Switch' 0"
++		cset "name='AIU ACODEC SRC' DISABLED"
++	]
++	Value {
++		PlaybackVolume "name='ACODEC Playback Volume'"
++		PlaybackSwitch "name='ACODEC Playback Switch'"
++		PlaybackMixerElem "ACODEC"
++	}
++}
++
++SectionDevice."HDMI" {
++	Comment "HDMI"
++
++	EnableSequence [
++		cdev "hw:GXLP241"
++		cset "name='AIU HDMI CTRL SRC' I2S"
++	]
++	DisableSequence [
++		cdev "hw:GXLP241"
++		cset "name='AIU HDMI CTRL SRC' DISABLED"
++	]
++}
+\ No newline at end of file
+-- 
+2.33.0
+
