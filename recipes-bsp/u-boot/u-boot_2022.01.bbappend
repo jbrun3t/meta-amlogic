@@ -10,10 +10,10 @@ SRC_URI:append:nosem = " \
 SRC_URI:append:nosem = " \
         file://0001-ARM-meson-fixup-error-on-efuse-commands-return.patch"
 
-# Fixup some mmc problems with 2021.01
+# Fixup some mmc problems with 2022.01
 SRC_URI:append:nosem = " \
-	file://0001-mmc-meson-gx-stick-to-the-oscillator.patch \
-	file://0002-mmc-meson-gx-align-clock-settings-on-linux.patch"
+	file://0001-mmc-meson-gx-set-clk-always-on-according-to-the-chip.patch \
+	file://0002-mmc-meson-gx-set-270-core-phase-during-the-identific.patch"
 
 # Add the watchdog support
 SRC_URI:append:nosem = " \
