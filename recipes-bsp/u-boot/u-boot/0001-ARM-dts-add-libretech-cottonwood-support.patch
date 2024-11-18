@@ -1,46 +1,25 @@
-From 6e0ad2f68efee36b311b6987ea277fe6c5eff8fd Mon Sep 17 00:00:00 2001
+From b9f36b8ac589cdab18d7cd61b905051852dc1aa1 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Tue, 18 Jul 2023 14:52:19 +0200
-Subject: [PATCH 2/2] ARM: dts: add libretech cottonwood support
+Subject: [PATCH] ARM: dts: add libretech cottonwood support
 
 Add support for libretech CC devices based on the S905D3 and A311D
 
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 Upstream-Status: Pending
 ---
- arch/arm/dts/Makefile                         |   2 +
  .../meson-g12b-a311d-libretech-cc-u-boot.dtsi |  30 ++++++
  .../meson-libretech-cottonwood-u-boot.dtsi    |  23 ++++
  .../meson-sm1-s905d3-libretech-cc-u-boot.dtsi |  30 ++++++
  configs/libretech-a311d-cc_defconfig          | 100 ++++++++++++++++++
  configs/libretech-s905d3-cc_defconfig         | 100 ++++++++++++++++++
- 6 files changed, 285 insertions(+)
+ 5 files changed, 283 insertions(+)
  create mode 100644 arch/arm/dts/meson-g12b-a311d-libretech-cc-u-boot.dtsi
  create mode 100644 arch/arm/dts/meson-libretech-cottonwood-u-boot.dtsi
  create mode 100644 arch/arm/dts/meson-sm1-s905d3-libretech-cc-u-boot.dtsi
  create mode 100644 configs/libretech-a311d-cc_defconfig
  create mode 100644 configs/libretech-s905d3-cc_defconfig
 
-diff --git a/arch/arm/dts/Makefile b/arch/arm/dts/Makefile
-index 4a4a915de319..829f5dd9e756 100644
---- a/arch/arm/dts/Makefile
-+++ b/arch/arm/dts/Makefile
-@@ -237,6 +237,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
- 	meson-g12a-u200.dtb \
- 	meson-g12b-a311d-bananapi-m2s.dtb \
- 	meson-g12b-a311d-khadas-vim3.dtb \
-+	meson-g12b-a311d-libretech-cc.dtb \
- 	meson-g12b-bananapi-cm4-cm4io.dtb \
- 	meson-g12b-gsking-x.dtb \
- 	meson-g12b-gtking.dtb \
-@@ -249,6 +250,7 @@ dtb-$(CONFIG_ARCH_MESON) += \
- 	meson-sm1-bananapi-m2-pro.dtb \
- 	meson-sm1-bananapi-m5.dtb \
- 	meson-sm1-khadas-vim3l.dtb \
-+	meson-sm1-s905d3-libretech-cc.dtb \
- 	meson-sm1-odroid-c4.dtb \
- 	meson-sm1-odroid-hc4.dtb \
- 	meson-sm1-sei610.dtb
 diff --git a/arch/arm/dts/meson-g12b-a311d-libretech-cc-u-boot.dtsi b/arch/arm/dts/meson-g12b-a311d-libretech-cc-u-boot.dtsi
 new file mode 100644
 index 000000000000..17703289562f
@@ -144,7 +123,7 @@ index 000000000000..f1d77d73f39c
 +};
 diff --git a/configs/libretech-a311d-cc_defconfig b/configs/libretech-a311d-cc_defconfig
 new file mode 100644
-index 000000000000..165d5eaed17c
+index 000000000000..592c2e5174d6
 --- /dev/null
 +++ b/configs/libretech-a311d-cc_defconfig
 @@ -0,0 +1,100 @@
@@ -158,7 +137,7 @@ index 000000000000..165d5eaed17c
 +CONFIG_ENV_OFFSET=0xFFFF0000
 +CONFIG_ENV_SECT_SIZE=0x10000
 +CONFIG_DM_GPIO=y
-+CONFIG_DEFAULT_DEVICE_TREE="meson-g12b-a311d-libretech-cc"
++CONFIG_DEFAULT_DEVICE_TREE="amlogic/meson-g12b-a311d-libretech-cc"
 +CONFIG_OF_LIBFDT_OVERLAY=y
 +CONFIG_DM_RESET=y
 +CONFIG_MESON_G12A=y
@@ -250,7 +229,7 @@ index 000000000000..165d5eaed17c
 +CONFIG_BMP_32BPP=y
 diff --git a/configs/libretech-s905d3-cc_defconfig b/configs/libretech-s905d3-cc_defconfig
 new file mode 100644
-index 000000000000..da851b710138
+index 000000000000..12c42c7f9311
 --- /dev/null
 +++ b/configs/libretech-s905d3-cc_defconfig
 @@ -0,0 +1,100 @@
@@ -264,7 +243,7 @@ index 000000000000..da851b710138
 +CONFIG_ENV_OFFSET=0xFFFF0000
 +CONFIG_ENV_SECT_SIZE=0x10000
 +CONFIG_DM_GPIO=y
-+CONFIG_DEFAULT_DEVICE_TREE="meson-sm1-s905d3-libretech-cc"
++CONFIG_DEFAULT_DEVICE_TREE="amlogic/meson-sm1-s905d3-libretech-cc"
 +CONFIG_OF_LIBFDT_OVERLAY=y
 +CONFIG_DM_RESET=y
 +CONFIG_MESON_G12A=y
@@ -355,5 +334,5 @@ index 000000000000..da851b710138
 +CONFIG_BMP_24BPP=y
 +CONFIG_BMP_32BPP=y
 -- 
-2.43.0
+2.45.2
 
