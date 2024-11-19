@@ -4,6 +4,9 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 SRC_URI = "file://nvmem-fuses.cfg"
 
+S = "${WORKDIR}/sources"
+UNPACKDIR = "${S}"
+
 # Configuration depends on the machine
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE:append = "|aml-s905x-cc"
@@ -12,5 +15,5 @@ RDEPENDS:${PN} = "nvmem-fuses"
 
 do_install() {
 	install -d ${D}${sysconfdir}
-	install -m 0644 ${WORKDIR}/nvmem-fuses.cfg ${D}${sysconfdir}/nvmem-fuses.cfg
+	install -m 0644 ${UNPACKDIR}/nvmem-fuses.cfg ${D}${sysconfdir}/nvmem-fuses.cfg
 }

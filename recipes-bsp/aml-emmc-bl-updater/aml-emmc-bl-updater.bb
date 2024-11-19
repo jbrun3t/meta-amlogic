@@ -6,9 +6,12 @@ inherit allarch
 
 SRC_URI = "file://aml-emmc-bl-updater.sh"
 
+S = "${WORKDIR}/sources"
+UNPACKDIR = "${S}"
+
 RDEPENDS:${PN} = "${VIRTUAL-RUNTIME_base-utils} mmc-utils util-linux-lsblk"
 
 do_install() {
 	install -d ${D}${sbindir}
-	install -m 0755 ${WORKDIR}/aml-emmc-bl-updater.sh ${D}${sbindir}/aml-emmc-bl-updater
+	install -m 0755 ${UNPACKDIR}/aml-emmc-bl-updater.sh ${D}${sbindir}/aml-emmc-bl-updater
 }

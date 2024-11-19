@@ -6,10 +6,13 @@ inherit allarch
 
 SRC_URI = "file://nvmem-fuses.sh"
 
+S = "${WORKDIR}/sources"
+UNPACKDIR = "${S}"
+
 # Require shell, dd and hexdump
 RDEPENDS:${PN} = "${VIRTUAL-RUNTIME_base-utils} util-linux-hexdump"
 
 do_install() {
 	install -d ${D}${sbindir}
-	install -m 0755 ${WORKDIR}/nvmem-fuses.sh ${D}${sbindir}/nvmem-fuses
+	install -m 0755 ${UNPACKDIR}/nvmem-fuses.sh ${D}${sbindir}/nvmem-fuses
 }
