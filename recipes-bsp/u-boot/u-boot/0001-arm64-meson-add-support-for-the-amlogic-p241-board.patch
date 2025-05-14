@@ -1,4 +1,4 @@
-From daa74765c3b2cc33e67099afb7300cdeb05ab858 Mon Sep 17 00:00:00 2001
+From 52132dbd802df7c80ba49095975c88a74ce8ce13 Mon Sep 17 00:00:00 2001
 From: Jerome Brunet <jbrunet@baylibre.com>
 Date: Tue, 10 Aug 2021 15:51:16 +0200
 Subject: [PATCH] arm64: meson: add support for the amlogic p241 board
@@ -29,7 +29,7 @@ index 000000000000..c25963559f9a
 +#include "meson-gxl-u-boot.dtsi"
 diff --git a/configs/p241_defconfig b/configs/p241_defconfig
 new file mode 100644
-index 000000000000..1fef5ecdc276
+index 000000000000..7c424b03eafb
 --- /dev/null
 +++ b/configs/p241_defconfig
 @@ -0,0 +1,72 @@
@@ -46,10 +46,10 @@ index 000000000000..1fef5ecdc276
 +CONFIG_OF_LIBFDT_OVERLAY=y
 +CONFIG_DM_RESET=y
 +CONFIG_MESON_GXL=y
++CONFIG_SYS_LOAD_ADDR=0x1000000
 +CONFIG_DEBUG_UART_BASE=0xc81004c0
 +CONFIG_DEBUG_UART_CLOCK=24000000
 +CONFIG_IDENT_STRING=" p241"
-+CONFIG_SYS_LOAD_ADDR=0x1000000
 +CONFIG_DEBUG_UART=y
 +CONFIG_REMAKE_ELF=y
 +CONFIG_OF_BOARD_SETUP=y
@@ -106,5 +106,5 @@ index 000000000000..1fef5ecdc276
 +CONFIG_USB_GADGET_DWC2_OTG=y
 +CONFIG_USB_GADGET_DOWNLOAD=y
 -- 
-2.45.2
+2.47.2
 
