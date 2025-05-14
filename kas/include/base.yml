@@ -11,7 +11,7 @@ bblayers_conf_header:
 
 local_conf_header:
   root-nopass: |
-    EXTRA_IMAGE_FEATURES += "debug-tweaks"
+    EXTRA_IMAGE_FEATURES += "allow-empty-password allow-root-login empty-root-password post-install-logging"
   standard: |
     CONF_VERSION = "2"
     USER_CLASSES ?= "buildstats"

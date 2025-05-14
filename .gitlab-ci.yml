@@ -23,7 +23,7 @@ build:
   extends: .build
   only:
     - scarthgap
-    - styhead
+    - walnascar
     - tags
   parallel:
     matrix:
