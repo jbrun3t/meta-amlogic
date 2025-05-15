@@ -62,7 +62,7 @@ dependencies and the configuration
 ```
 git clone https://gitlab.com/jbrunet/meta-amlogic.git
 cd meta-amlogic
-KAS_MACHINE=aml-s905x-cc kas build kas/poky.yml
+KAS_MACHINE=aml-s905x-cc kas build kas/default.yml
 ```
 
 This will build `core-image-base` for the `aml-s905x-cc`
