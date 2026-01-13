@@ -3,7 +3,7 @@ header:
 
 defaults:
   repos:
-    branch: walnascar
+    branch: whinlatter
 
 repos:
   oe-core:
@@ -14,7 +14,7 @@ repos:
   bitbake:
     url: https://git.openembedded.org/bitbake
     path: layers/bitbake
-    branch: '2.12'
+    branch: '2.16'
     layers:
       .: disabled
   meta-amlogic:

@@ -15,8 +15,12 @@ MACHINE_EXTRA_RRECOMMENDS:append = " kernel-modules"
 MACHINE_EXTRA_RRECOMMENDS:append = " \
 	${@bb.utils.contains("DISTRO_FEATURES", "alsa", "alsa-state", "", d)}"
 
-KERNEL_CLASSES += "kernel-fitimage"
-KERNEL_IMAGETYPE ?= "fitImage"
+# This new linux-yocto-fitimage package is a bit weird. Not quite
+# How this will play with other kernels. Let's see when it happens
+# ... but for now stick to fitImages
+KERNEL_IMAGETYPE ?= "Image"
+IMAGE_BOOT_FILES += "fitImage"
+KERNEL_CLASSES += "kernel-fit-extra-artifacts"
 
 # All Amlogic platforms seems to use this console settings
 SERIAL_CONSOLES ?= "115200;ttyAML0"
