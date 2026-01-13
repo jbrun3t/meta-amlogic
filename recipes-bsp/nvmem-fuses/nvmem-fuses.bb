@@ -6,8 +6,7 @@ inherit allarch
 
 SRC_URI = "file://nvmem-fuses.sh"
 
-S = "${WORKDIR}/sources"
-UNPACKDIR = "${S}"
+S = "${UNPACKDIR}"
 
 # Require shell, dd and hexdump
 RDEPENDS:${PN} = "${VIRTUAL-RUNTIME_base-utils} util-linux-hexdump"

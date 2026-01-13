@@ -38,7 +38,7 @@ SRC_URI:khadas-vim3l = "https://jbrunet.baylibre.com/pub/amlogic/fips/fip-collec
 
 inherit deploy
 
-S = "${WORKDIR}/fip-collect"
+S = "${UNPACKDIR}/fip-collect"
 
 do_compile () {
 	./generate-bins.sh ${S} ${DEPLOY_DIR_IMAGE}/u-boot.bin ${B} atf.bin
