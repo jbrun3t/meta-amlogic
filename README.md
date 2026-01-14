@@ -101,3 +101,6 @@ bootloader can't use GPT partitionning scheme.
    it messes with uart.  When doing copy/paste, some characters are
    missed. Setting AMLOGIC_UBOOT_ILOVEUART to "1" sets stdin and stdout to use the
    UART only, avoiding the problem.
+ * AMLOGIC_BOOT_DEV: This allows to override the default boot device for a machine.
+   It may change the configuration applied to u-boot and the WKS file selected.
+   Allowed values are `sdcard`, `emmc`, `spi` and `none`.

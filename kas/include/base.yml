@@ -11,6 +11,7 @@ bblayers_conf_header:
 
 env:
   AMLOGIC_UBOOT_ILOVEUART:
+  AMLOGIC_BOOT_DEV:
 
 local_conf_header:
   root-nopass: |
