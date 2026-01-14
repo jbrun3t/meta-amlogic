@@ -1,5 +1,7 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}/${PV}:${THISDIR}/${PN}:"
 
+MACHINEOVERRIDES =. "${MACHINE}-${AMLOGIC_BOOT_DEV}-boot:${AMLOGIC_BOOT_DEV}-boot:"
+
 # HDMI and USB Keyboard mess with the TTY and are annoying while working on the platform
 SRC_URI:append:amlogic = " \
 	${@bb.utils.contains('UBOOT_ILOVEUART', '1', "file://meson-config-only-uart-by-default.patch", "", d)}"

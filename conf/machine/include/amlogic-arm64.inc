@@ -29,7 +29,6 @@ SERIAL_CONSOLES_CHECK ?= "${SERIAL_CONSOLES}"
 # Make boot sources a bit simpler to change
 # eMMC seems like a sane default for most design
 AMLOGIC_BOOT_DEV ??= "emmc"
-MACHINEOVERRIDES:append = ":${MACHINE}-${AMLOGIC_BOOT_DEV}-boot:${AMLOGIC_BOOT_DEV}-boot"
 WKS_FILE ?= "amlogic-${AMLOGIC_BOOT_DEV}.wks"
 
 # Amlogic will need the TFA to boot.
