@@ -9,6 +9,9 @@ bblayers_conf_header:
   standard: |
     POKY_BBLAYERS_CONF_VERSION = "2"
 
+env:
+  AMLOGIC_UBOOT_ILOVEUART:
+
 local_conf_header:
   root-nopass: |
     EXTRA_IMAGE_FEATURES += "allow-empty-password allow-root-login empty-root-password post-install-logging"
@@ -28,4 +31,4 @@ local_conf_header:
         HALT,/tmp,10M,1K"
   # Disable u-boot video and usb kbd by default
   no-video-usb-kbd: |
-    UBOOT_ILOVEUART ??= "1"
+    AMLOGIC_UBOOT_ILOVEUART ??= "1"

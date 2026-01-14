@@ -95,9 +95,9 @@ bootloader can't use GPT partitionning scheme.
 
 ## Flags
 
- * UBOOT_ILOVEUART: By default, most amlogic board u-boot configuration
+ * AMLOGIC_UBOOT_ILOVEUART: By default, most amlogic board u-boot configuration
    have HDMI and USB Keyboard enabled. stdout and stdin are set to use
    them.  This is a great feature for standalone device. For dev purpose,
    it messes with uart.  When doing copy/paste, some characters are
-   missed. Setting UBOOT_ILOVEUART to "1" sets stdin and stdout to use the
+   missed. Setting AMLOGIC_UBOOT_ILOVEUART to "1" sets stdin and stdout to use the
    UART only, avoiding the problem.

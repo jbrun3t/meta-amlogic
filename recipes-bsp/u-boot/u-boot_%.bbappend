@@ -4,7 +4,7 @@ MACHINEOVERRIDES =. "${MACHINE}-${AMLOGIC_BOOT_DEV}-boot:${AMLOGIC_BOOT_DEV}-boo
 
 # HDMI and USB Keyboard mess with the TTY and are annoying while working on the platform
 SRC_URI:append:amlogic = " \
-	${@bb.utils.contains('UBOOT_ILOVEUART', '1', "file://meson-config-only-uart-by-default.patch", "", d)}"
+	${@bb.utils.contains('AMLOGIC_UBOOT_ILOVEUART', '1', "file://meson-config-only-uart-by-default.patch", "", d)}"
 
 # fit-support.cfg is meant to be replaced by another layer path prepend if the
 # requirements are different. For example, one might wish to disable
