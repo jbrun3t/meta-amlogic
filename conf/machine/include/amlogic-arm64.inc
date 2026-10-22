@@ -5,7 +5,7 @@ require conf/machine/include/soc-family.inc
 
 # Basic feature all HW usually have - override if necessary
 MACHINE_FEATURES ?= "serial"
-MACHINE_FEATURES_BACKFILL_CONSIDERED ?= "rtc"
+MACHINE_FEATURES_OPTED_OUT ?= "rtc"
 
 # Between the default kernel and ramfs addresses
 UBOOT_ENTRYPOINT ?= "0x0c000000"
