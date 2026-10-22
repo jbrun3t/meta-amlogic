@@ -22,8 +22,7 @@ variables:
 build:
   extends: .build
   only:
-    - scarthgap
-    - whinlatter
+    - wrynose
     - tags
   parallel:
     matrix:
